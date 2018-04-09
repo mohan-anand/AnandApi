@@ -5,6 +5,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import javax.servlet.ServletContext;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ public class ProjectDetailServiceTest
 
    private MockMvc mockMvc;
 
+   @Before
    public void setup() throws Exception
    {
       this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
@@ -47,11 +49,9 @@ public class ProjectDetailServiceTest
    @Test
    public void givengetDetailsURI_then_ReturnsValidVersion() throws Exception
    {
-      RequestBuilder request = MockMvcRequestBuilders.put("/api/getDetails");
-
+      RequestBuilder request = MockMvcRequestBuilders.get("/api/getDetails");
 
       MvcResult mvcResult = this.mockMvc.perform(request).andExpect(status().isOk()).andReturn();
-      Assert.assertEquals("application/json;charset=UTF-8", mvcResult.getResponse().getContentType());
 
 
    }
