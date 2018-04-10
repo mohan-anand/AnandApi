@@ -18,4 +18,11 @@ public class ProjectDetailApiService
    {
       return "Version 1.0";
    }
+
+   @RequestMapping(value = "/getAutherDetails", method = RequestMethod.GET)
+   @ResponseStatus(HttpStatus.OK)
+   public String getAutherDetails()
+   {
+      return "Anand Mohan";
+   }
 }
